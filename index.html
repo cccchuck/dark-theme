@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浅谈 Web Dark Theme</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>👋🏻 你好啊, 我是 Chuck !</h1>
+    <p>在本文中我将逐步带你去实现我们的需求，不用害怕，这其实很简单。</p>
+    <button id="toggle">切换模式</button>
+  </body>
+
+  <script>
+    (function () {
+      const lightTheme = {
+        "--color-bg": "#fffffe",
+        "--color-heading": "#232946",
+        "--color-content": "var(--color-heading)",
+        "--color-bg-btn": "#232946",
+        "--color-text-btn": "#b8c1ec",
+      };
+
+      const darkTheme = {
+        "--color-bg": "#232946",
+        "--color-heading": "#fffffe",
+        "--color-content": "#b8c1ec",
+        "--color-bg-btn": "#eebbc3",
+        "--color-text-btn": "#232946",
+      };
+
+      function setTheme(isDark) {
+        if (isDark) {
+          Object.keys(darkTheme).forEach((key) => {
+            document.documentElement.style.setProperty(key, darkTheme[key]);
+          });
+        } else {
+          Object.keys(lightTheme).forEach((key) => {
+            document.documentElement.style.setProperty(key, lightTheme[key]);
+          });
+        }
+      }
+
+      function init() {
+        let isDark = localStorage.getItem("isDark");
+        if (isDark !== null) {
+          isDark = JSON.parse(isDark);
+          setTheme(isDark);
+        }
+
+        const btn = document.querySelector("#toggle");
+        btn.addEventListener("click", () => {
+          isDark = !isDark;
+          setTheme(isDark);
+          localStorage.setItem("isDark", isDark);
+        });
+      }
+
+      init();
+    })();
+  </script>
+</html>

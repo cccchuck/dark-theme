@@ -1,0 +1,71 @@
+:root {
+  --color-bg: #fffffe;
+  --color-heading: #232946;
+  --color-content: var(--color-heading);
+  --color-bg-btn: #232946;
+  --color-text-btn: #b8c1ec;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #232946;
+    --color-heading: #fffffe;
+    --color-content: #b8c1ec;
+    --color-bg-btn: #eebbc3;
+    --color-text-btn: #232946;
+  }
+}
+
+* {
+  text-align: center;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+h1 {
+  color: var(--color-heading);
+}
+
+p {
+  color: var(--color-content);
+}
+
+button {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.5em;
+  outline: none;
+  background-color: var(--color-bg-btn);
+  color: var(--color-text-btn);
+  font-size: 1em;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 1px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* :root {
+  --color-bg: #fffffe;
+  --color-heading: #232946;
+  --color-content: var(--color-heading);
+  --color-bg: #232946;
+  --color-heading: #fffffe;
+  --color-content: #b8c1ec;
+}
+
+* {
+  text-align: center;
+}
+
+h1 {
+  color: var(--color-heading);
+}
+
+p {
+  color: var(--color-content);
+} */
